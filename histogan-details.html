@@ -83,32 +83,58 @@
           </div>
 
         </div>
-        <div class="col-lg-8">
-            <img width="256px" src="assets/img/portfolio/histogan/stylegan2.png" >
-          </div> 
-          <div class="col-lg-4">
+
+        <div class="row gy-4">
+          <div class="col-lg-8">
             <p align="justify">
-              There, my task begins. We picked two promising animation princible namely gazing and breathing. Gazing is looking at somewhere. 
-              However, robot arm has no eyes to look anywhere. Thus, we use it's gripper (the big black part at the tip of the robot). Gripper direction 
-              manipulates the attention of the human partner of the robot. It makes human sense that robot is gazing at a point. As you guess, pointing 
-              a point with gripper's direction is the gazing. 
+                StyleGAN has created huge impact on generative models. It has generated faces that had never existed. 
+                The idea of using a style vector was to make generative model insisting on same attribute instances like hair color and 
+                nose shape. Moreover, learned style vectors enabled arithmetic operations on attributes such as addition and substraction. 
+                That means adding style vector of a person with glasses (remember that the person is also generated) to another generated 
+                person without glasses but let's say curly hair generates a person with glasses and having curly hair.  
             </p>
+            <p>
+              StyleGAN's effect spread across the generative model community. There studied different versions or modifications of StyleGAN. 
+              HistoGAN is just one of them. It tries to emphasize the color of generated image. Thus, it modifies generation process of an image 
+              with histogram features. The idea is similar to StyleGAN's arithmetic operations. Here, instead of using target generated image 
+              as adding style (remember person with glasses example), authors propose using target histogram taken from any target image.
+              Under the hood, briefly, this is handled by adding histogram features to end layers instead of style vector and 
+              adding histogram loss to generative loss.
+            </p>
+            <p>
+              We reimplemented HistoGAN for METU CENG 796 - Deep Generative Models course given by Asst. Prof. Gökberk Cinbiş. 
+              The ultimate aim was investigating whether learnign papers are reimplementable along with learning implementation 
+              process from scratch. Each group offers a subset of qualitative and quantitative results from paper. We chose 
+              Anime dataset from Kaggle and offered subset of it's results. However, we did not fully reach our goals. 
+              Our generated images were darker and blurrier. Moreover, they seemed they do not care much about target histogram. 
+            </p>
+            <p>
+              The take home note is generative models are hard to train since they have two parts generative and discriminative. 
+              Therefore, it is harder to debug that models. On the other hand, any deep learning project that reach incredible results
+              includes tight finetunings. Moreover, there are lots of parameters and not possible to mention each of them in a paper.
+              Therefore, reimplementing a deep learning paper without knowing the exact parameters can easily go wrong. 
+              <strong>Disclaimer: this is my opinion.</strong>
+            </p>
+            <p>
+              You can see some generated images from our implementation and expected generations. For further details, please see the git link places at the top of this page.
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <img width="256" src="assets/img/portfolio/histogan/stylegan2.png" >
+            <figcaption><i>Image taken from StyleGAN2 paper</i></figcaption>
           </div> 
-        <p align="justify">
-          Here comes the breathing. If you imagine how human looks when breathing you see his/her chest moves up and down slightly. 
-          Unfortunately, robot again has no ability to stretch, unlike human. Yet, what it has is two long links (see shining long metals) close to the its base. 
-          There we can use them to create imaginary volume like there exists a lung. Then, we stretch and relax that imaginary volume by 
-          small ossilationary moves.
-        </p>
-        <p align="justify">
-          I conducted an experiment with 57 participants where participants control the experiment flow. That means they 
-          can interact with the robot as much as they desire. As an example, one interaction is doing mutual gaze. Mutual gaze 
-          is the interaction when human looks at the robot and robot looks at the human. There are other interactions and also 
-          breathing in the experiment. The paper was set off, stay tuned to see details. Nonetheless, since you read untill here,
-          people likes gazing and breathing as a result. Moreover, the helmet and the bracelet at the photos are used to track 
-          participants moves. If you wonder how I track and use them, I can say briefly I use motion capture cameras at the top.
-        </p>
-      </div>
+        </div>
+        
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <img src="assets/img/portfolio/histogan/teaser.png" alt="Snow" width="512">
+            <figcaption align="center">Our results</figcaption>
+          </div>
+          <div class="col-lg-6">
+            <img src="assets/img/portfolio/histogan/exp2.jpeg" alt="Forest" width="512">
+            <figcaption align="center">Result from paper</figcaption>
+          </div>
+        </div>
     </section><!-- End Portfolio Details Section -->
 
   </main><!-- End #main -->
